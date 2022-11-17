@@ -25,16 +25,31 @@ const buttonNext = document.getElementById ("next");
 const buttonPerv = document.getElementById ("perv");
 const containerThumbnail = document.getElementById ("thumb");
 const containerMiniture = document.getElementById ("miniature");
-//per ogni elemento stampo una miniature 
-images.forEach((element,i) => {
+let activeImgNumber= 1
+//per ogni elemento stampo una miniature e un immagine thumb che lascio in display none 
+//images.forEach((element,i) => {
+
+    // creo contenitore da mettere in display none o active
+    const containerImg =document.createElement("div");
+    //creo limmagine thumbnail
+    const thumbImg = document.createElement("img");
+    //creo la colonna nella quale mettere le miniature
     const colElement = document.createElement("div");
-    colElement.classList.add ("col");
+    //creo limmagine delle miniature
     const miniatureImg = document.createElement("img");
+    //assegno le classi
+    colElement.classList.add ("col");
+    miniatureImg.classList.add ("miniature");                      
     miniatureImg.src = element.image;
-    miniatureImg.classList.add ("ratio-1x1");
-    miniatureImg.style.width = "100%";
+    thumbImg.src = element.image
+    //do il display none al contenitore img thumbnail
+    //thumbImg.classList
+    containerImg.append(thumbImg);
+    containerThumbnail.append(containerImg)
     colElement.append(miniatureImg)
     containerMiniture.append(colElement);
+
+
+    
 });
 
- 
